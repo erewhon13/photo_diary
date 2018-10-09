@@ -24,22 +24,23 @@
  
      <context:component-scan base-package="com.company.photodiary"></context:component-scan>
 	 <mvc:annotation-driven />
- <!--    <mvc:interceptors>
+ 	
+ 	<mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
-            <bean id="com.company.photodiary.loggerInterceptor" class="com.company.photodiary.logger.LoggerInterceptor"></bean>
+            <bean id="loggerInterceptor" class="com.company.photodiary.logger.LoggerInterceptor"></bean>
         </mvc:interceptor>
-    </mvc:interceptors> -->
+    </mvc:interceptors>
+
      
-   <!--  <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/> -->
+    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
      
     <bean class="org.springframework.web.servlet.view.BeanNameViewResolver" p:order="0" />
-    <!-- <bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />     -->
      
-  <!--   <bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+    <bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
 		<property name="contentType" value="text/html;charset=UTF-8"/>
-	</bean> -->
-     
+	</bean> 
+
     <bean
         class="org.springframework.web.servlet.view.UrlBasedViewResolver" p:order="1"
         p:viewClass="org.springframework.web.servlet.view.JstlView"

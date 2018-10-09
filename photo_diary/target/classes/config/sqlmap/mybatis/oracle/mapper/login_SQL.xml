@@ -13,7 +13,7 @@
 			,REGDATE
 			,CFLAG
 		) VALUES (
-			'1'
+			SEQ_UKEY.NEXTVAL
 			,#{email}
 			,#{nickname}
 			,#{pwd}

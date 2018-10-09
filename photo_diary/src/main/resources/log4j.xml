@@ -11,10 +11,10 @@
      
     <appender name="console-infolog" class="org.apache.log4j.ConsoleAppender">
         <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="%d %5p %m%n" />
+            <param name="ConversionPattern" value="%d %-5p [%t] %C{2} (%F:%L) - %m%n" />
         </layout>   
     </appender>
-     
+    
     <!-- Application Loggers -->
     <logger name="first" additivity="false">
         <level value="debug" />

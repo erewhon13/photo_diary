@@ -4,6 +4,9 @@ import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.logging.impl.Log4JLogger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +23,9 @@ import com.company.photodiary.service.LoginService;
  */
 @Controller
 public class LoginController {
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(LoginController.class);
+	
 	
 	 @Autowired
      private LoginService loginService;
@@ -59,11 +65,12 @@ public class LoginController {
 	@RequestMapping(value = "/login/signUp", method = RequestMethod.POST)
 	public String signUp(UserModel userModel,RedirectAttributes redirectAttributes, HttpServletRequest request) {
 		
+		System.out.println(userModel.getNickname());
+		
 		try {
-			
 			loginService.signUp(userModel);
 		} catch(Exception e) {
-			e.printStackTrace();
+			LOGGER.error("error", e);
 			redirectAttributes.addFlashAttribute("message", "fail");
 		}
 	
