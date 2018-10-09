@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="login">
+
+	<insert id="signUp" parameterType="UserModel" useGeneratedKeys="false">
+		/* login_SQL.signUp, mgseo, 2018.10.09 : login_SQL.xml */
+		INSERT INTO USER_INFO
+		(
+			UKEY
+			,EMAIL
+			,NICKNAME
+			,PWD
+			,REGDATE
+			,CFLAG
+		) VALUES (
+			'1'
+			,#{email}
+			,#{nickname}
+			,#{pwd}
+			,sysdate
+			,'N'
+		)
+	</insert>
+	
+
+	
+</mapper>

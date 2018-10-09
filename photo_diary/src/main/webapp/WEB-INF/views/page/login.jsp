@@ -18,7 +18,7 @@
 	        $("a[data-role=signUp]").click(function(){
 	        	
 	            var popOption = "width=400, height=600, scrollbars=yes, status=no;";
-	            var url = "/login/signUp";
+	            var url = "/login/signPopup";
 	            window.open(url, "회원가입", popOption);
 	        });
 		 });
