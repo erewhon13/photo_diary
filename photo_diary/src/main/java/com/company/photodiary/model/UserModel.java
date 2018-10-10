@@ -19,6 +19,7 @@ public class UserModel implements Serializable{
 	private String cflag;			//인증플래그 여부
 	private String status;			//상태
 	private String uptdate;			//수정일
+	private String salt;			//비밀번호암호화
 	
 	
 	public int getUkey() {
@@ -69,9 +70,12 @@ public class UserModel implements Serializable{
 	public void setUptdate(String uptdate) {
 		this.uptdate = uptdate;
 	}
-	
-	
-	
+	public String getSalt() {
+		return salt;
+	}
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
 	
 	
 }

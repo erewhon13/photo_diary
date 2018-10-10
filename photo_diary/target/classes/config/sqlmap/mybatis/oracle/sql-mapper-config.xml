@@ -17,6 +17,7 @@
     <typeAliases><!-- Definition of MAPPER Alias -->
         <!-- 회원정보 -->
         <typeAlias type="com.company.photodiary.model.UserModel" alias="userModel" />
+        <typeAlias type="com.company.photodiary.model.BoardModel" alias="boardModel" />
         
     </typeAliases>
 </configuration>

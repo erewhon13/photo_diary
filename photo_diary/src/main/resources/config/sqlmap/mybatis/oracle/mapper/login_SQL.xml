@@ -22,6 +22,28 @@
 		)
 	</insert>
 	
+	<select id="loginCheck" resultType="String">
+		SELECT  /* login_SQL.loginCheck, mgseo, 2018.10.11 : login_SQL.xml */
+			EMAIL 
+		FROM 
+			USER_INFO
+		WHERE 
+			EMAIL =#{email} AND 
+			PWD = #{pwd}
+	</select>
+	
+	<select id="viewUser" resultType="UserModel">
+		SELECT /* login_SQL.viewUser, mgseo, 2018.10.11 : login_SQL.xml */
+			UKEY
+			,EMAIL
+			,NICKNAME
+		FROM 
+			USER_INFO
+		WHERE 
+			EMAIL =#{email} AND
+			PWD = #{pwd}
+	</select>
+	
 
 	
 </mapper>

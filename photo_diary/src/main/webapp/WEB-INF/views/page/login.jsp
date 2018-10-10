@@ -22,6 +22,30 @@
 	            window.open(url, "회원가입", popOption);
 	        });
 		 });
+		 
+		 // 로그인 버튼
+         $(document).on("click", "button[data-role=login]", function(){
+             	$("form[name=loginForm]").attr("method", "post");
+            	//$("input[name=userId]").val($("input[name=userId]").val().trim());
+            
+            	//alert($("input[name=email]").val());
+            	//alert($("input[name=pwd]").val());
+            	
+               if($("input[name=email]").val() == ""){
+               	toastr.error("아이디를 입력해주세요.");
+               	return false;
+               }
+                
+               if($("input[name=pwd]").val().trim() == ""){
+               	toastr.error("비밀번호를 입력해주세요.");
+               	return false;
+               }
+               
+				$("form[name=loginForm]").attr("action", "/loginCheck").submit();
+             	return false;
+         });
+		 
+		 
 		</script>
 
 </head>
@@ -39,16 +63,16 @@
 					</span>
 				</div>
 
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" name="loginForm">
 					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
-						<span class="label-input100">ID</span>
-						<input class="input100" type="text" name="username" placeholder="Enter id">
+						<span class="label-input100">EMAIL</span>
+						<input class="input100" type="text" name="email" placeholder="Enter email">
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
 						<span class="label-input100">Password</span>
-						<input class="input100" type="password" name="pass" placeholder="Enter password">
+						<input class="input100" type="password" name="pwd" placeholder="Enter password">
 						<span class="focus-input100"></span>
 					</div>
 
@@ -75,10 +99,20 @@
 					</div>
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button data-role="login" class="login100-form-btn">
 							Login
 						</button>
 					</div>
+					<c:if test="${msg=='failure'}">
+						<div style="color: red;">
+							아이디 또는 비밀번호가 일치하지 않습니다.
+						</div>
+					</c:if>
+					<c:if test="${msg=='logout'}">
+						<div style="color: red;">
+							로그아웃되었습니다.
+						</div>
+					</c:if>
 				</form>
 			</div>
 		</div>
